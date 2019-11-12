@@ -1,0 +1,2 @@
+1573545560385|152|statement|connection 1|url jdbc:mysql://127.0.0.1:3306/firefighting_iot?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8|select * from t_admin_stration_region t where t.REGION_LEVEL = 1|select * from t_admin_stration_region t where t.REGION_LEVEL = 1
+1573545560446|0|commit|connection 1|url jdbc:mysql://127.0.0.1:3306/firefighting_iot?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8||
