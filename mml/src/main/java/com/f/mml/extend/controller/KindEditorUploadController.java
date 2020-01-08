@@ -1,8 +1,8 @@
 package com.f.mml.extend.controller;
 
-import cn.hutool.core.lang.UUID;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.f.mml.common.id.SnowflakeIdWorker;
 import com.f.mml.extend.dao.TFileInfoMapper;
 import com.f.mml.extend.domain.TFileInfo;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -34,7 +34,7 @@ import java.util.*;
 
 
 @Controller
-@RequestMapping("sd/file")
+@RequestMapping("mml/file")
 public class KindEditorUploadController {
     private static final ObjectMapper objectMapper = new ObjectMapper();
     @Value("${files.diskPath}")
@@ -127,14 +127,16 @@ public class KindEditorUploadController {
             msg.put("fileType", fileExt);
             msg.put("filePath", savePath + newFileName);
             msg.put("fileUrl", saveUrl + newFileName);
-
             msg.put("error", 0);
+
+            SnowflakeIdWorker idWorker = new SnowflakeIdWorker(0, 0);
+            long fileId = idWorker.nextId();
+            msg.put("fileId", fileId);
 
             JSONObject itemJSONObj = JSONObject.parseObject(JSON.toJSONString(msg));
             TFileInfo tFileInfo = JSON.parseObject(itemJSONObj.toString(), TFileInfo.class);
-            tFileInfo.setFileId(UUID.randomUUID().toString());
+            tFileInfo.setFileId(fileId);
             tFileInfoMapper.insert(tFileInfo);
-            msg.put("fileId", tFileInfo.getFileId());
 
             return msg;
         }

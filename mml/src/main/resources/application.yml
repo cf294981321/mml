@@ -71,7 +71,13 @@ thirdparty:
   loginName: hycs
   passWord: 123456
 files:
-  url: /home/iot/files
+  url: /home/mml/files
   #diskPath: /home/iot/files
-  diskPath: /home/iot/files
-
+  diskPath: /home/mml/files
+  filepath: /home/mml/qrupload/
+#企业微信
+weixin:
+  application：
+    corpid：wwff6e968d1de15ea9
+    agentid：1000060
+    corpsecret：naRdko0fRYarfAXt8VwMC_itL5QcqhXf-FAGi16fWr8

@@ -1,9 +1,10 @@
-package com.f.mml.system;
+package com.f.mml.extend;
 
 import java.io.UnsupportedEncodingException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneOffset;
 import java.util.UUID;
 
 public class test {
@@ -20,12 +21,12 @@ public class test {
 //        String code = LocalDateTime.now().format(formatter);
 
 
+        LocalDateTime day = LocalDateTime.now();
+        System.out.println(day.toInstant(ZoneOffset.of("+8")).toEpochMilli() );
+        LocalDateTime ldt = LocalDateTime.of(2019, 1, 1, 0, 0, 0);
+        System.out.println(ldt.toInstant(ZoneOffset.of("+8")).toEpochMilli() );
 
-        System.out.println(UUID.randomUUID());
-
-        String body = new String("");
-
-        System.out.println(body);
+        System.out.println(System.currentTimeMillis());
 //        ZonedDateTime parse = ZonedDateTime.parse(string);
 //
 //        DateUtil util = new DateUtil();

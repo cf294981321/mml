@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.f.mml.extend.dao.TableMapper">
+
+    <select id="getTableNames" resultType="string" parameterType="string">
+        select table_name from information_schema.tables where table_schema='ecology' ORDER BY table_name;
+    </select>
+    <select id="getColumnNames" resultType="string" parameterType="string">
+        select COLUMN_name from information_schema.columns t where
+        table_schema='ecology' and table_name= #{tname} ORDER BY t.ordinal_position;
+    </select>
+    <select id="queryValueForColumn" resultType="integer" parameterType="string">
+         SELECT count(*) num  from ${tname} where id != 26 and ${cname} = 26;
+    </select>
+    <select id="insertResult" resultType="integer" parameterType="string">
+        INSERT INTO aa_result (gtable_name, gcolumn_name) VALUES (#{tname}, #{cname}) ;
+    </select>
+
+</mapper>

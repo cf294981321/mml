@@ -30,7 +30,7 @@ public class TFileInfo extends Model<TFileInfo> {
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "file_id", type = IdType.AUTO)
-    private String fileId;
+    private Long fileId;
     @ApiModelProperty(value = "")
     private String parentId;
 
